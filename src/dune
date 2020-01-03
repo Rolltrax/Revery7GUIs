@@ -1,0 +1,12 @@
+(executables
+  (names Revery7Guis)
+  (public_names Revery7Guis)
+  (preprocess (pps brisk-reconciler.ppx lwt_ppx))
+  (libraries
+    Revery
+      ))
+
+(install
+    (section bin)
+    (package Revery7Guis)
+    (files Roboto-Regular.ttf))

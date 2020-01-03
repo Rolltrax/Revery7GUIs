@@ -1,0 +1,7 @@
+opam-version: "1.2"
+version: "dev"
+maintainer: "me@zachbayl.in"
+author: ["Zach Baylin"]
+build: [
+
+]

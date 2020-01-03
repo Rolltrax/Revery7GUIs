@@ -1,0 +1,22 @@
+{
+  "name": "revery-7guis",
+  "author": "Zach Baylin",
+  "scripts": {
+    "build": "esy b",
+    "run": "esy x Revery7Guis"
+  },
+  "esy": {
+    "build": [
+      ["dune", "build", "-p", "Revery7Guis", "-j4"]
+    ]
+  },
+  "dependencies": {
+    "@esy-ocaml/reason": "^3.4.0",
+    "revery": "github:revery-ui/revery#c95a386"
+  },
+  "devDependencies": {
+    "ocaml": ">=4.6.0 <4.8.0",
+    "@opam/merlin": "^3.3.2",
+    "@opam/dune": "^1.8.0"
+  }
+}
