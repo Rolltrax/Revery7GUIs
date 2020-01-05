@@ -2,7 +2,7 @@
   "name": "revery-7guis",
   "author": "Zach Baylin",
   "scripts": {
-    "build": "esy b",
+    "format": "dune build @fmt --auto-promote",
     "run": "esy x Revery7Guis"
   },
   "esy": {

@@ -49,12 +49,10 @@ module ExampleHost = {
       <ExampleListItem
         isActive
         example=ex
-        onClick={
-          _ => {
-            Window.setTitle(win, "Revery 7GUIs -- " ++ ex.name);
-            setCurrentExample(_ => ex);
-          }
-        }
+        onClick={_ => {
+          Window.setTitle(win, "Revery 7GUIs -- " ++ ex.name);
+          setCurrentExample(_ => ex);
+        }}
       />;
     };
 
@@ -124,7 +122,8 @@ let init = app => {
     ();
   };
 
-  let _:React.element(React.reveryNode) => unit = UI.start(win, <ExampleHost window=win />);
+  let _: React.element(React.reveryNode) => unit =
+    UI.start(win, <ExampleHost window=win />);
   ();
 };
 
