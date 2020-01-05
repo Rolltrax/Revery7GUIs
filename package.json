@@ -8,6 +8,9 @@
   "esy": {
     "build": [
       [ "dune", "build", "-p", "Revery7Guis", "-j4" ]
+    ],
+    "buildDev": [
+      [ "refmterr", "dune", "build", "-j4" ]
     ]
   },
   "dependencies": {
@@ -17,6 +20,7 @@
   },
   "devDependencies": {
     "ocaml": ">=4.6.0 <4.10.0",
+    "refmterr": "^3.3.0",
     "@opam/merlin": "^3.3.2"
   }
 }

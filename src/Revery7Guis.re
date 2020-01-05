@@ -124,7 +124,7 @@ let init = app => {
     ();
   };
 
-  let _ = UI.start(win, <ExampleHost window=win />);
+  let _:React.element(React.reveryNode) => unit = UI.start(win, <ExampleHost window=win />);
   ();
 };
 

@@ -1,5 +1,5 @@
 {
-  "checksum": "dbf4f8248051631cd0085f99ddd3babf",
+  "checksum": "9d0c303b928003da32a920b8a47d73e9",
   "root": "revery-7guis@link-dev:./package.json",
   "node": {
     "revery-text-wrap@github:revery-ui/revery-text-wrap#005385c@d41d8cd9": {
@@ -30,7 +30,8 @@
         "@opam/dune@opam:1.11.4@a7ccb7ae", "@esy-ocaml/reason@3.5.2@d41d8cd9"
       ],
       "devDependencies": [
-        "ocaml@4.9.0@d41d8cd9", "@opam/merlin@opam:3.3.3@d653b06a"
+        "refmterr@3.3.0@d41d8cd9", "ocaml@4.9.0@d41d8cd9",
+        "@opam/merlin@opam:3.3.3@d653b06a"
       ]
     },
     "revery@github:revery-ui/revery#c95a386@d41d8cd9": {
