@@ -6,16 +6,16 @@ module Example = {
   let%component make = () => {
     let%hook ((degC, degF), setDeg) = Hooks.state(("", ""));
     let setDegC = degC => {
-      switch (int_of_string_opt(degC)) {
+      switch (float_of_string_opt(degC)) {
       | Some(vDegC) =>
-        setDeg(_ => (degC, string_of_int(vDegC * 9 / 5 + 32)))
+        setDeg(_ => (degC, string_of_float(vDegC *. (9. /. 5.) +. 32.)))
       | None => setDeg(((_, degF)) => (degC, degF))
       };
     };
     let setDegF = degF => {
-      switch (int_of_string_opt(degF)) {
+      switch (float_of_string_opt(degF)) {
       | Some(vDegF) =>
-        setDeg(_ => (string_of_int((vDegF - 32) * 5 / 9), degF))
+        setDeg(_ => (string_of_float((vDegF -. 32.) *. (5. /. 9.)), degF))
       | None => setDeg(((degC, _)) => (degC, degF))
       };
     };
