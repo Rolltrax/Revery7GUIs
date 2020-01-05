@@ -2,21 +2,25 @@
   "name": "revery-7guis",
   "author": "Zach Baylin",
   "scripts": {
-    "build": "esy b",
+    "format": "dune build @fmt --auto-promote",
     "run": "esy x Revery7Guis"
   },
   "esy": {
     "build": [
-      ["dune", "build", "-p", "Revery7Guis", "-j4"]
+      [ "dune", "build", "-p", "Revery7Guis", "-j4" ]
+    ],
+    "buildDev": [
+      [ "refmterr", "dune", "build", "-j4" ]
     ]
   },
   "dependencies": {
     "@esy-ocaml/reason": "^3.4.0",
+    "@opam/dune": ">1.6.0 <=2.0.1",
     "revery": "github:revery-ui/revery#c95a386"
   },
   "devDependencies": {
-    "ocaml": ">=4.6.0 <4.8.0",
-    "@opam/merlin": "^3.3.2",
-    "@opam/dune": "^1.8.0"
+    "ocaml": ">=4.6.0 <4.10.0",
+    "refmterr": "^3.3.0",
+    "@opam/merlin": "^3.3.2"
   }
 }

@@ -4,8 +4,21 @@ open Revery.UI.Components;
 
 module Example = {
   let%component make = () => {
-    let%hook (degC, setDegC) = Hooks.state(0);
-    let%hook (degF, setDegF) = Hooks.state(32);
+    let%hook ((degC, degF), setDeg) = Hooks.state(("", ""));
+    let setDegC = degC => {
+      switch (float_of_string_opt(degC)) {
+      | Some(vDegC) =>
+        setDeg(_ => (degC, string_of_float(vDegC *. (9. /. 5.) +. 32.)))
+      | None => setDeg(((_, degF)) => (degC, degF))
+      };
+    };
+    let setDegF = degF => {
+      switch (float_of_string_opt(degF)) {
+      | Some(vDegF) =>
+        setDeg(_ => (string_of_float((vDegF -. 32.) *. (5. /. 9.)), degF))
+      | None => setDeg(((degC, _)) => (degC, degF))
+      };
+    };
 
     let containerStyle =
       Style.[
@@ -37,22 +50,6 @@ module Example = {
         height(22),
       ];
 
-    let setFahrenheitByCelcius = str =>
-      switch (int_of_string_opt(str)) {
-      | Some(n) =>
-        setDegC(_ => n);
-        setDegF(_ => n * 9 / 5 + 32);
-      | None => ()
-      };
-
-    let setCelsiusByFahrenheit = str =>
-      switch (int_of_string_opt(str)) {
-      | Some(n) =>
-        setDegF(_ => n);
-        setDegC(_ => (n - 32) * 5 / 9);
-      | None => ()
-      };
-
     <View style=containerStyle>
       <View
         style=Style.[
@@ -61,9 +58,9 @@ module Example = {
           justifyContent(`Center),
         ]>
         <Input
-          value={string_of_int(degC)}
+          value=degC
           style=inputStyle
-          onChange={(value, _) => setFahrenheitByCelcius(value)}
+          onChange={(value, _) => setDegC(value)}
         />
         <Text text="°C" style=labelStyle />
         <Text
@@ -77,9 +74,9 @@ module Example = {
           ]
         />
         <Input
-          value={string_of_int(degF)}
+          value=degF
           style=inputStyle
-          onChange={(value, _) => setCelsiusByFahrenheit(value)}
+          onChange={(value, _) => setDegF(value)}
         />
         <Text text="°F" style=labelStyle />
       </View>
