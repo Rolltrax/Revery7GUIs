@@ -1,0 +1,10 @@
+(executable
+ (name Revery7Guis)
+ (public_name Revery7Guis)
+ (modes native byte)
+(ocamlc_flags
+  (:standard -custom))
+ ; (modules Revery7Guis)
+ (preprocess
+  (pps brisk-reconciler.ppx lwt_ppx))
+ (libraries Revery dynlink lib_view))

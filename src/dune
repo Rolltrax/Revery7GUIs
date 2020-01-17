@@ -1,20 +1,22 @@
 (library
  (name lib_view)
- (wrapped false)
+  (ocamlc_flags (:standard -custom))
+ (modes native byte)
+ (public_name Revery7Guis.lib_view)
  (preprocess
   (pps brisk-reconciler.ppx lwt_ppx))
- (modules :standard \ Revery7Guis)
+ ; (modules :standard \ Revery7Guis)
  (libraries Revery))
 
-(executable
- (name Revery7Guis)
- (public_name Revery7Guis)
- (ocamlc_flags
-  (:standard -custom))
- (modules Revery7Guis)
- (preprocess
-  (pps brisk-reconciler.ppx lwt_ppx))
- (libraries Revery lib_view))
+;(executable
+; (name Revery7Guis)
+; (public_name Revery7Guis)
+; (ocamlc_flags
+;  (:standard -custom))
+; (modules Revery7Guis)
+; (preprocess
+;  (pps brisk-reconciler.ppx lwt_ppx))
+; (libraries Revery dynlink lib_view))
 
 (install
  (section bin)
