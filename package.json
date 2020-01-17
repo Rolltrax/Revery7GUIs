@@ -3,6 +3,7 @@
   "author": "Zach Baylin",
   "scripts": {
     "format": "dune build @fmt --auto-promote",
+    "hot-reload": "esy #{os == 'windows' ? 'b ' : ''}dune exec src/Revery7Guis.bc #{self.target_dir}",
     "run": "esy x Revery7Guis"
   },
   "esy": {
