@@ -16,7 +16,7 @@
   "dependencies": {
     "@esy-ocaml/reason": "^3.4.0",
     "@opam/dune": ">1.6.0 <=2.0.1",
-    "revery": "github:revery-ui/revery#c95a386"
+    "revery": "github:revery-ui/revery#feat/hot-reload"
   },
   "devDependencies": {
     "ocaml": ">=4.6.0 <4.10.0",
