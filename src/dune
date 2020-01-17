@@ -1,9 +1,18 @@
-(executables
- (names Revery7Guis)
- (public_names Revery7Guis)
+(library
+ (name lib_view)
+ (wrapped false)
  (preprocess
   (pps brisk-reconciler.ppx lwt_ppx))
+ (modules :standard \ Revery7Guis)
  (libraries Revery))
+
+(executable
+ (name Revery7Guis)
+ (public_name Revery7Guis)
+ (modules Revery7Guis)
+ (preprocess
+  (pps brisk-reconciler.ppx lwt_ppx))
+ (libraries Revery lib_view))
 
 (install
  (section bin)
